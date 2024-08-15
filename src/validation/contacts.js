@@ -22,7 +22,7 @@ export const createContactSchema = Joi.object({
   }),
   contactType: Joi.string().valid('work', 'home', 'personal').messages({
     'any.only':
-      'The value must be one of the following: "work", "home" or "personal".',
+      'The value ContactType must be one of the following: "work", "home" or "personal".',
     'string.empty': 'Contact type cannot be empty.',
   }),
 });
