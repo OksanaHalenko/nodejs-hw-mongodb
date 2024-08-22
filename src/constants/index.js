@@ -1,4 +1,6 @@
 import { env } from '../utils/env.js';
+import path from 'node:path';
+
 export const SORT_ORDER = {
   ASC: 'asc',
   DESC: 'desc',
@@ -14,3 +16,5 @@ export const SMTP = {
   SMTP_PASSWORD: env('SMTP_PASSWORD'),
   SMTP_FROM: env('SMTP_FROM'),
 };
+
+export const TEMPLATES_DIR = path.join(process.cwd(), 'src', 'templates');
