@@ -13,8 +13,13 @@ tags:
     description: Auth operations.
 servers:
   - url: http://localhost:3000
-  - url: #посилання на задеплоєний сайт
+  # - url: #посилання на задеплоєний сайт
 paths:
+  /students:
+    get:
+      $ref: ./swagger/paths/students/get.yaml
+    post:
+      $ref: ./swagger/paths/students/post.yaml
   /students/{id}:
     get:
       $ref: ./swagger/paths/students/{id}/get.yaml
