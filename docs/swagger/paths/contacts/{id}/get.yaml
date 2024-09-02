@@ -34,29 +34,6 @@ responses:
               type: object
               $ref: '../../../components/schemas/contact.yaml'
   '404':
-    description: 'Contact not found'
-    content:
-      application/json:
-        schema:
-          type: object
-          required:
-            - status
-            - message
-            - data
-          properties:
-            status:
-              type: integer
-              example: 404
-            message:
-              type: string
-              example: Contact not found
-            data:
-              type: object
-              required:
-                - message
-              properties:
-                message:
-                  type: string
-                  example: 'Contact not found'
+    $ref: '../../../components/responses/404.yaml'
   '401':
     $ref: '../../../components/responses/401.yaml'
