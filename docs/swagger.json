@@ -336,41 +336,7 @@
             "$ref": "#/components/responses/401"
           },
           "404": {
-            "description": "Contact not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "status",
-                    "message",
-                    "data"
-                  ],
-                  "properties": {
-                    "status": {
-                      "type": "integer",
-                      "example": 404
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Contact not found"
-                    },
-                    "data": {
-                      "type": "object",
-                      "required": [
-                        "message"
-                      ],
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "example": "Contact not found"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/404"
           }
         }
       },
@@ -378,9 +344,9 @@
         "tags": [
           "Contacts"
         ],
-        "summary": "Create contact",
+        "summary": "Update contact",
         "operationId": "updateContact",
-        "description": "Create a contact with payload",
+        "description": "Update a contact with payload",
         "security": [
           {
             "bearerAuth": []
@@ -401,11 +367,9 @@
           "content": {
             "multipart/form-data": {
               "schema": {
+                "description": "You can select all or some of the fields to update",
                 "type": "object",
                 "required": [
-                  "name",
-                  "phoneNumber",
-                  "contactType",
                   "userId"
                 ],
                 "properties": {
@@ -455,8 +419,8 @@
           }
         },
         "responses": {
-          "201": {
-            "description": "Creates a student",
+          "200": {
+            "description": "Update a contact",
             "content": {
               "application/json": {
                 "schema": {
@@ -469,11 +433,11 @@
                   "properties": {
                     "status": {
                       "type": "integer",
-                      "example": 201
+                      "example": 200
                     },
                     "message": {
                       "type": "string",
-                      "example": "Successfully created a contact!"
+                      "example": "Successfully patched a contact!"
                     },
                     "data": {
                       "type": "object",
@@ -486,6 +450,9 @@
           },
           "401": {
             "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
           }
         }
       }
@@ -585,6 +552,43 @@
                     "message": {
                       "type": "string",
                       "example": "Access token expired"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "404": {
+        "description": "Contact not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "status",
+                "message",
+                "data"
+              ],
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 404
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Contact not found"
+                },
+                "data": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Contact not found"
                     }
                   }
                 }
