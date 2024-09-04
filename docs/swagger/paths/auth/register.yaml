@@ -76,4 +76,6 @@ responses:
               type: string
               example: 'Email in use'
   '400':
-    $ref: ..\..\components\responses\400.yaml
+    $ref: '../../components/responses/400.yaml'
+  '500':
+    $ref: '../../components/responses/500.yaml'
