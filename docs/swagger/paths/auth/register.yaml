@@ -1,0 +1,79 @@
+tags:
+  - Auth
+summary: User registration
+operationId: registerUser
+description: 'Create a new user'
+security:
+  - bearerAuth: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        required:
+          - name
+          - email
+          - password
+        properties:
+          name:
+            description: 'User name'
+            type: string
+            example: 'John Doe'
+          email:
+            description: 'Users e-mail address'
+            type: string
+            example: 'JohnDoe@gmail.com'
+          password:
+            description: 'Password'
+            type: string
+            example: 'password235'
+responses:
+  '201':
+    description: 'Creates a user'
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 201
+            message:
+              type: string
+              example: 'Successfully registered a user!'
+            data:
+              type: object
+              properties:
+                _id:
+                  description: 'Users id.'
+                  type: string
+                  format: objectId
+                  example: '66a35382997eac73e992ae30'
+                name:
+                  description: 'User name'
+                  type: string
+                  example: 'John Doe'
+                email:
+                  description: 'Users e-mail address'
+                  type: string
+                  example: 'JohnDoe@gmail.com'
+  '409':
+    description: 'Conflict, email already in use'
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 409
+            message:
+              type: string
+              example: 'Email in use'
+  '400':
+    $ref: ..\..\components\responses\400.yaml
