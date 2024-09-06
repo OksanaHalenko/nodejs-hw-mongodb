@@ -199,8 +199,7 @@
                 "required": [
                   "name",
                   "phoneNumber",
-                  "contactType",
-                  "userId"
+                  "contactType"
                 ],
                 "properties": {
                   "name": {
@@ -232,11 +231,6 @@
                       "home",
                       "personal"
                     ]
-                  },
-                  "userId": {
-                    "description": "Contact's parent id",
-                    "type": "string",
-                    "example": "65e4decdd286b30065d54af9"
                   },
                   "photo": {
                     "description": "Contact's photo",
@@ -384,9 +378,6 @@
               "schema": {
                 "description": "You can select all or some of the fields to update",
                 "type": "object",
-                "required": [
-                  "userId"
-                ],
                 "properties": {
                   "name": {
                     "description": "Contact's name",
@@ -417,11 +408,6 @@
                       "home",
                       "personal"
                     ]
-                  },
-                  "userId": {
-                    "description": "Contact's parent id",
-                    "type": "string",
-                    "example": "65e4decdd286b30065d54af9"
                   },
                   "photo": {
                     "description": "Contact's photo",
